@@ -31,7 +31,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await api.post("/auth/login", { email, password, role });
+      const res = await api.post("/auth/login",Payload, { email, password, role });
       login(res.data.user, res.data.role);
       navigate(res.data.role === "student" ? "/student" : "/club");
     } catch (error) {
